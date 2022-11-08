@@ -1,10 +1,10 @@
 import 'package:clean_architecture/core/utils/app_colors.dart';
+import 'package:clean_architecture/features/random_qoute/domain_layer/entities/quote.dart';
 import 'package:flutter/material.dart';
-import 'package:clean_architecture/core/utils/media_query.dart';
 
 class QouteContent extends StatelessWidget {
-  const QouteContent({super.key});
-
+  const QouteContent({super.key,required this.quote});
+  final Quote quote;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -18,14 +18,14 @@ class QouteContent extends StatelessWidget {
       child: Column(
         children: [
           Text(
-            'bla vsdc dcnsjkdcsdcnsd sdjkcnkdnc dcjnc eknc ask ack eckj cakdc eejkc ckzc akj ca ck ac ajk akc ekjc a  ',
+            quote.content,
             textAlign: TextAlign.center,
             style: Theme.of(context).textTheme.bodyMedium,
           ),
           Container(
             margin: const EdgeInsets.symmetric(vertical: 15),
             child: Text(
-              "Mohamed Younies",
+              quote.author,
               style: Theme.of(context).textTheme.bodyText2,
             ),
           )
